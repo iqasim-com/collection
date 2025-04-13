@@ -4,7 +4,7 @@ function App() {
   return (
     <>
       <div>
-        <h1>Calculator</h1>
+        <h1 className="text-3xl">Calculator</h1>
       </div>
       <div className="wrapper">
         <input type="text"/>
