@@ -1,14 +1,17 @@
 import './App.css'
 import {Button, Input} from 'mq-design-system'
 import {useState} from "react";
+import {buttons} from "./config.ts";
 
 function App() {
-  const buttons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '.', '+', '-', '=', 'x', '/'];
-  const [input, setInput] = useState();
+  const [input, setInput] = useState('');
 
-  const calculatorInput = (input) => {
-    setInput(input)
+  const calculatorInput = (input: any) => {
+    if (typeof input === 'number') {
+      setInput((prev) => prev + input)
+    }
   }
+  
   return (
     <>
       <div className="flex justify-center align-center h-full flex-col items-center">
