@@ -25,7 +25,7 @@ function App() {
           </div>
           <div>
             <div className="grid grid-cols-3 gap-2">
-              <Button variant="primary" click={clear}>Clear</Button>
+              <Button variant="danger" click={clear}>Clear</Button>
               {buttons.map((button, index) => (
                 <Button
                   key={Date.now() + index}
