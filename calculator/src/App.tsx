@@ -1,7 +1,7 @@
 import './App.css'
 import {Button, Input} from 'mq-design-system'
 import {useState} from "react";
-import {buttons} from "./config.ts";
+import {buttons, operators} from "./config.ts";
 
 function App() {
   const [input, setInput] = useState('');
@@ -19,17 +19,31 @@ function App() {
   return (
     <>
       <div className="flex justify-center align-center h-full flex-col items-center">
-        <div className="inline border border-gray-300 rounded-md p-4">
-          <div className="mb-10">
+        <div className="inline border border-gray-300 rounded-md p-4 bg-white">
+          <div className="mb-10 text-black">
+            <span>{input}</span>
             <Input additionalClasses="text-4xl p-4 w-full" placeholder="0" value={input} />
           </div>
-          <div>
+          <div className="mb-3">
             <div className="grid grid-cols-3 gap-2">
               <Button variant="danger" click={clear}>AC</Button>
               {buttons.map((button, index) => (
                 <Button
                   key={Date.now() + index}
-                  variant="primary"
+                  variant="dark"
+                  click={() => calculatorInput(button)}
+                >
+                  {button}
+                </Button>
+              ))}
+            </div>
+          </div>
+          <div>
+            <div className="grid grid-cols-3 gap-2">
+              {operators.map((button, index) => (
+                <Button
+                  key={Date.now() + index}
+                  variant="info"
                   click={() => calculatorInput(button)}
                 >
                   {button}
